@@ -1,1 +1,3 @@
+#Copying Artifacts (Dockerfile) to Ansible Server.
+
 rsync -avh /var/lib/jenkins/workspace/kubernetesproject/* root@Ansible_Server_Private_IP:/opt
