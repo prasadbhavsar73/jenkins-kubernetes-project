@@ -21,6 +21,7 @@ sudo mv ./kubectl /usr/local/bin/kubectl
 ***Attach IAM role to ubuntu server
 
 Note: If you create IAM user with programmatic access then provide Access keys.
+
 aws configure
 
 ***Install kops on ubuntu instance:
@@ -32,12 +33,14 @@ sudo mv kops-linux-amd64 /usr/local/bin/kops
 ***Create a Route53 private hosted zone
 
 ***Create an S3 bucket
+
 aws s3 mb s3://dev.k8s.valaxy.in
 
 ***Expose environment variable:
+
 export KOPS_STATE_STORE=s3://dev.k8s.valaxy.in
 
-Create sshkeys before creating cluster
+***Create sshkeys before creating Cluster
 
 ssh-keygen
 
@@ -53,6 +56,6 @@ kops update cluster dev.k8s.valaxy.in --yes
 
 kops validate cluster
 
-To list nodes
+***To list nodes
 
 kubectl get nodes 
