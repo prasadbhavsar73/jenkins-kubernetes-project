@@ -1,3 +1,5 @@
+#Deployment will make use of Docker Image which we created earlier and pushed to DockerHub.
+
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -20,11 +22,11 @@ spec:
                 spec:
                         containers:
                                 - name: mycontainer
-                                  image: pbhavsar73/kubernetesproject
+                                  image: pbhavsar73/kubernetesproject            #This is the Docker Image which we created earlier from Dockerfile and pushed to DockerHub.
                                   imagePullPolicy: Always
                                   ports:
                                           - containerPort: 80
-                        tolerations:                                                            #For Single Node Cluster (MiniKube)
+                        tolerations:                                             #For Single Node Cluster only (MiniKube).
                                 - effect: "NoExecute"
                                   key: "node.kubernetes.io/not-ready"
                                   operator: "Exists"
