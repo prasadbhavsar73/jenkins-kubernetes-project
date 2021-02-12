@@ -5,8 +5,8 @@ metadata:
 spec:
         selector:
                 matchLabels:
-                        app: cloudknowledge
-        replicas: 1
+                        app: cloud
+        replicas: 3
         strategy:
                 type: RollingUpdate
                 rollingUpdate:
@@ -16,7 +16,7 @@ spec:
                 metadata:
                         name: mypod
                         labels:
-                                app: cloudknowledge
+                                app: cloud
                 spec:
                         containers:
                                 - name: mycontainer
@@ -24,7 +24,7 @@ spec:
                                   imagePullPolicy: Always
                                   ports:
                                           - containerPort: 80
-                        tolerations:
+                        tolerations:                                                            #For Single Node Cluster (MiniKube)
                                 - effect: "NoExecute"
                                   key: "node.kubernetes.io/not-ready"
                                   operator: "Exists"
