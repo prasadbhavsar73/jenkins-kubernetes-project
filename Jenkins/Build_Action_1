@@ -1,3 +1,5 @@
 #Copying Artifacts (Dockerfile) to Ansible Server.
 
+#Jenkins Plugins: "Send Files or Execute Commands over SSH".
+
 rsync -avh /var/lib/jenkins/workspace/kubernetesproject/* root@Ansible_Server_Private_IP:/opt
