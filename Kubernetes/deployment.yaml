@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+        name: mydeployment
+spec:
+        selector:
+                matchLabels:
+                        app: cloudknowledge
+        replicas: 1
+        strategy:
+                type: RollingUpdate
+                rollingUpdate:
+                        maxSurge: 1
+                        maxUnavailable: 1
+        template:
+                metadata:
+                        name: mypod
+                        labels:
+                                app: cloudknowledge
+                spec:
+                        containers:
+                                - name: mycontainer
+                                  image: pbhavsar73/kubernetesproject
+                                  imagePullPolicy: Always
+                                  ports:
+                                          - containerPort: 80
+                        tolerations:
+                                - effect: "NoExecute"
+                                  key: "node.kubernetes.io/not-ready"
+                                  operator: "Exists"
+                                - effect: "NoExecute"
+                                  key: "node.kubernetes.io/unreachable"
+                                  operator: "Exists"
