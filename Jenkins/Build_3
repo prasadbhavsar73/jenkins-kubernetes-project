@@ -1,0 +1,3 @@
+#Running the Ansible Playbook for Application Deployment (K8s Deployments+Services) on Kubernetes Cluster.
+
+ansible-playbook /opt/ansible.yaml
