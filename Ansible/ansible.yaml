@@ -1,3 +1,5 @@
+#This Ansible Playbook will create Deployments and Services on the Kubernetes Cluster (KOPS/MiniKube).
+
 - hosts: all
   become: true
 
